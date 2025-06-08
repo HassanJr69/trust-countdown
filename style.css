@@ -1,0 +1,191 @@
+<style>
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: 'Unbounded', sans-serif;
+  background: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Preloader Eye Animation */
+#preloader {
+  background: #000;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.eye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+.eye .lid {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #111;
+  z-index: 2;
+  transition: all 1.4s ease;
+}
+.lid.top {
+  top: 0;
+  border-bottom: 3px solid #fff;
+}
+.lid.bottom {
+  bottom: 0;
+  border-top: 3px solid #fff;
+}
+.pupil {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #61dafb;
+  border-radius: 50%;
+  top: 30px;
+  left: 30px;
+  box-shadow: 0 0 20px #61dafb;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Hide page before preload completes */
+.hidden {
+  display: none;
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  margin: 2rem auto;
+  display: block;
+}
+
+/* Title */
+.glitch-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #61dafb;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  animation: glitch 1.5s infinite;
+}
+@keyframes glitch {
+  0% { text-shadow: 1px 0 red, -1px 0 cyan; }
+  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+  40% { text-shadow: 2px 0 red, -2px 0 cyan; }
+  60% { text-shadow: -1px 0 red, 1px 0 cyan; }
+  80% { text-shadow: 1px 0 red, -1px 0 cyan; }
+  100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+}
+
+/* Countdown Clock */
+.countdown {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  text-align: center;
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
+}
+
+/* Follow Text */
+.follow-text {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+}
+.follow-text a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+/* Layout */
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+section {
+  margin: 2rem 0;
+}
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #eee;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin: 0.3rem 0;
+}
+ul li a {
+  color: #61dafb;
+  text-decoration: none;
+}
+ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Inputs */
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 2px solid #0ff;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+}
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #0ff;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #61dafb;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+footer a {
+  color: #0ff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .glitch-title {
+    font-size: 2rem;
+  }
+  .countdown {
+    font-size: 1.4rem;
+  }
+}
+</style>
