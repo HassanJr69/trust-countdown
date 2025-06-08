@@ -1,24 +1,24 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$TRUST Countdown – Powered by Intuition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 2rem;
-  background-image: radial-gradient(circle at center, #0a0a0a, #000);
-}
-
-header {
-  margin-bottom: 2rem;
+    }
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #000;
+      color: #e0e0e0;
+      text-align: center;
+      padding: 2rem;
+      background-image: radial-gradient(circle at center, #0f0f0f, #000);
+    }header {
+  margin-bottom: 3rem;
 }
 
 img.logo {
@@ -28,9 +28,10 @@ img.logo {
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.8rem;
-  color: #61dafb;
-  text-shadow: 0 0 10px #61dafb;
+  font-size: 3rem;
+  color: #f0f;
+  text-shadow: 0 0 15px #f0f;
+  letter-spacing: 1.5px;
 }
 
 .countdown {
@@ -42,99 +43,134 @@ h1 {
 }
 
 section {
-  margin: 2rem 0;
+  margin: 3rem 0;
+  padding: 1rem;
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid #333;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
 }
 
-input[type="text"] {
-  padding: 0.8rem;
-  font-size: 1rem;
-  width: 80%;
-  max-width: 400px;
-  border: 2px solid #61dafb;
-  background: #111;
+.section-title {
+  font-family: 'Orbitron', sans-serif;
   color: #fff;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
+  position: relative;
 }
-
-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #61dafb;
-  border: none;
-  color: #000;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #1fa2ff;
+.section-title::before {
+  content: "✱";
+  color: #f0f;
+  margin-right: 0.5rem;
 }
 
 ul {
   list-style-type: none;
   margin-top: 1rem;
 }
-
 ul li a {
   color: #0ff;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+ul li a:hover {
+  color: #f0f;
+  text-shadow: 0 0 5px #f0f;
 }
 
 footer {
-  margin-top: 3rem;
+  margin-top: 4rem;
   font-size: 0.9rem;
-  color: #888;
+  color: #666;
+}
+footer a {
+  color: #f0f;
 }
 
-.section-title {
-  color: #f0f0f0;
+.tokenomics-link {
+  display: block;
+  margin-top: 2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.pledge-section {
+  margin-top: 4rem;
+}
+input[type="text"] {
+  padding: 0.8rem;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+  border: 2px solid #f0f;
+  background: #111;
+  color: #fff;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #f0f;
+  border: none;
+  color: #000;
+  cursor: pointer;
   font-weight: bold;
-  font-size: 1.3rem;
-  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #b300b3;
+  transform: scale(1.05);
 }
 
   </style>
-</head><body>
+</head>
+<body>
   <header>
     <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">
-    <h1>👁️ $TRUST IS COMING</h1>
+    <h1>$TRUST IS COMING</h1>
     <div class="countdown" id="countdown"></div>
-    <p>Follow <a href="https://x.com/0xIntuition" target="_blank" style="color:#61dafb;">@0xIntuition</a> for exclusive insights and updates.</p>
+    <p>Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for exclusive insights and updates.</p>
   </header>  <section>
-    <h2 class="section-title">👁️ Exclusive Waitlist Access</h2>
-    <p>Signal your interest early. Join the exclusive $TRUST waitlist and become part of the Intuition movement before the world catches on.</p>
-    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
-    <br />
-    <button onclick="pledgeSupport()">Pledge My Trust</button>
-    <ul id="pledges"></ul>
-  </section>  <section>
-    <h2 class="section-title">👤 Official Team</h2>
+    <h2 class="section-title">Official Team</h2>
     <ul>
       <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>
       <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>
       <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>
-    </ul><h2 class="section-title">🧭 Ambassadors</h2>
-<ul>
-  <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
-  <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
-  <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
-  <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
-</ul>
-
-<h2 class="section-title">👁️ Inner Circle</h2>
-<ul>
-  <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
-  <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
-  <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
-  <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
-  <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
-</ul>
-
-  </section>  <footer>
-    <p>Crafted with vision by <a href="https://x.com/0xMarshallo" target="_blank" style="color:#61dafb;">@0xMarshallo</a></p>
-  </footer>  <script>
-    const launchDate = new Date("July 1, 2025 00:00:00").getTime();
+    </ul>
+  </section>  <section>
+    <h2 class="section-title">Ambassadors</h2>
+    <ul>
+      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
+      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
+      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
+      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
+    </ul>
+  </section>  <section>
+    <h2 class="section-title">Inner Circle</h2>
+    <ul>
+      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
+      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
+      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
+      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
+      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
+    </ul>
+  </section>  <a class="tokenomics-link" href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" target="_blank">
+    For more arcane insights into the token's inner structure, explore the tokenomics here →
+  </a>  <footer>
+    <p>Crafted with vision by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
+  </footer>  <section class="pledge-section">
+    <h2 class="section-title">Priority Pledge</h2>
+    <p>Signal your allegiance. Join the $TRUST priority waitlist and step into the vault.</p>
+    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
+    <br />
+    <button onclick="pledgeSupport()">Pledge My Trust</button>
+    <ul id="pledges"></ul>
+  </section>  <script>
+    const launchDate = new Date("August 15, 2025 00:00:00").getTime();
     const pledges = [];
 
     function updateCountdown() {
@@ -166,4 +202,5 @@ footer {
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-  </script></body></html>
+  </script></body>
+</html>
