@@ -1,115 +1,48 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Trust – Cult-Tech Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Major+Mono+Display&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      color: #f2f2f2;
-      font-family: 'Major Mono Display', monospace;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-    section {
-      padding: 100px 20px;
-      border-bottom: 1px solid #222;
-    }
-    h1, h2 {
-      font-family: 'UnifrakturCook', cursive;
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    .emoji {
-      font-size: 1.5rem;
-    }
-    a {
-      color: #87ceeb;
-      text-decoration: underline;
-    }
-    .audio-bg {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      opacity: 0.2;
-    }
-    .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    .eye {
-      font-size: 4rem;
-      animation: blink 2s ease-in-out forwards;
-    }
-    @keyframes blink {
-      0% { opacity: 0; }
-      50% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>👁️ $TRUST — The Countdown Begins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="preloader">
-    <div class="eye">👁️</div>
+
+  <!-- Preloader 👁️ -->
+  <div id="preloader">
+    <div class="eye">
+      <div class="lid top"></div>
+      <div class="pupil"></div>
+      <div class="lid bottom"></div>
+    </div>
   </div>
-  <audio class="audio-bg" autoplay loop>
-    <source src="ambient.mp3" type="audio/mpeg" />
+
+  <!-- Audio for ambient cult vibe -->
+  <audio id="cultAudio" autoplay loop>
+    <source src="ambient.mp3" type="audio/mp3" />
   </audio>
-  <section>
-    <h1>The Trust</h1>
-    <p>A covenant forged in code. The revolution isn’t televised. It’s encrypted.</p>
-    <p>Countdown to Revelation: <span id="countdown">Loading...</span></p>
-  </section>  <section>
-    <h2>The Team <span class="emoji">🛡️</span></h2>
-    <p>Chosen minds, bound by oath. Their pulse drives the movement.</p>
-  </section>  <section>
-    <h2>Ambassadors <span class="emoji">⚔️</span></h2>
-    <p>Heralds of truth. They carry the flame into the void.</p>
-  </section>  <section>
-    <h2>Inner Circle <span class="emoji">🔺</span></h2>
-    <p>The unseen hand. The whisper behind the data.</p>
-  </section>  <section>
-    <h2>Decode the Tokenomicon</h2>
-    <p>Know what binds the trust together. Decentralized, tokenized.</p>
-    <p><a href="#">Explore Blueprint ↗</a></p>
-  </section>  <section>
-    <h2>Join the Trust</h2>
-    <p>This isn’t a form. It’s your vow. One chance.</p>
-  </section>  <script>
-    // Countdown timer to a fixed date
-    const countdownElement = document.getElementById('countdown');
-    const futureDate = new Date(Date.now() + 13 * 60 * 60 * 1000 + 37 * 60 * 1000 + 7 * 1000); // 13:37:07 from now
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = futureDate - now;
-      if (diff <= 0) {
-        countdownElement.textContent = "Revealed.";
-        return;
-      }
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      countdownElement.textContent = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-    }
+  <!-- Main container -->
+  <div id="page" class="hidden">
+    <header>
+      <img src="intuition-logo.png" alt="Intuition Logo" class="logo"/>
+      <h1 class="glitch-title">$TRUST IS COMING</h1>
+      <div id="countdown" class="countdown"></div>
+      <p class="follow-text">Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for inner knowledge.</p>
+    </header>
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    <!-- More sections coming below -->
+    <main>
+      <!-- We will add team, pledging, inner circle, and footer in the next steps -->
+    </main>
 
-    // Preloader removal
-    window.addEventListener('load', () => {
-      document.querySelector('.preloader').style.display = 'none';
-    });
-  </script></body>
+    <footer>
+      <p>👁️ Crafted with intention by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
