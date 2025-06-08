@@ -1,46 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$TRUST Countdown</title>
     <style>
-        body { text-align: center; font-family: Arial; margin-top: 50px; }
-        #countdown { font-size: 24px; color: #00f; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 5px 0 20px;
+        }
+        #countdown {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .follow {
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        .team-links a {
+            display: block;
+            color: #0ff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .pledge {
+            margin-top: 30px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0ff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <h2>Get Ready for $TRUST!</h2>
-    <p>Launching with @0xIntuition</p>
-    <div id="countdown"></div>
-    <p>Show your support!</p>
+    <!-- Insert Intuition Logo -->
+    <img src="UPLOAD_INTUITION_LOGO_HERE" alt="Intuition Logo" class="logo"><h1>Get Ready for $TRUST</h1>
+<p>Estimated TGE: August 15, 2025</p>
+<div id="countdown">Loading countdown...</div>
+
+<div class="pledge">
     <input type="text" id="xHandle" placeholder="Enter your X handle">
-    <button onclick="pledgeSupport()">Pledge Trust</button>
+    <button onclick="pledgeSupport()">Pledge $TRUST</button>
     <ul id="pledges"></ul>
+</div>
 
-    <script>
-        const launchDate = new Date("July 1, 2025 00:00:00").getTime();
-        const pledges = [];
+<div class="follow">
+    <p>Follow <a href="https://x.com/0xIntuition" target="_blank" style="color: #0ff">@0xIntuition</a> for more intuitive updates.</p>
+    <p>Click below to follow official team members:</p>
+    <div class="team-links">
+        <a href="https://x.com/0xBilly" target="_blank">@0xBilly</a>
+        <a href="https://x.com/TeamMember2" target="_blank">@TeamMember2</a>
+        <a href="https://x.com/TeamMember3" target="_blank">@TeamMember3</a>
+        <!-- Add more as needed -->
+    </div>
+</div>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("countdown").innerHTML = `${days} days left!`;
-            if (distance < 0) document.getElementById("countdown").innerHTML = "Launched!";
+<div class="footer">
+    Stylishly crafted by <a href="https://x.com/0xMarshallo" target="_blank" style="color: #0ff">@0xMarshallo</a>
+</div>
+
+<script>
+    const launchDate = new Date("August 15, 2025 00:00:00").getTime();
+    const pledges = [];
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance <= 0) {
+            document.getElementById("countdown").innerHTML = "🚀 $TRUST is Live!";
+            return;
         }
 
-        function pledgeSupport() {
-            const handle = document.getElementById("xHandle").value;
-            if (handle) {
-                pledges.push(handle);
-                document.getElementById("pledges").innerHTML = pledges.map(h => `<li>${h}</li>`).join('');
-                document.getElementById("xHandle").value = '';
-                alert(`Thanks, ${handle}! Your pledge is noted.`);
-            }
-        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+        document.getElementById("countdown").innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+    }
+
+    function pledgeSupport() {
+        const handle = document.getElementById("xHandle").value.trim();
+        if (handle) {
+            pledges.push(handle);
+            document.getElementById("pledges").innerHTML = pledges.map(h => `<li>@${h}</li>`).join('');
+            document.getElementById("xHandle").value = '';
+            alert(`Thanks @${handle}, your pledge is recorded!`);
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
 </body>
 </html>
