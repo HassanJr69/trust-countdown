@@ -1,98 +1,115 @@
-// Cult-Tech Website – Ultimate Version
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Trust – Cult-Tech Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Major+Mono+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: #f2f2f2;
+      font-family: 'Major Mono Display', monospace;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    section {
+      padding: 100px 20px;
+      border-bottom: 1px solid #222;
+    }
+    h1, h2 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .emoji {
+      font-size: 1.5rem;
+    }
+    a {
+      color: #87ceeb;
+      text-decoration: underline;
+    }
+    .audio-bg {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      opacity: 0.2;
+    }
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .eye {
+      font-size: 4rem;
+      animation: blink 2s ease-in-out forwards;
+    }
+    @keyframes blink {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader">
+    <div class="eye">👁️</div>
+  </div>
+  <audio class="audio-bg" autoplay loop>
+    <source src="ambient.mp3" type="audio/mpeg" />
+  </audio>
+  <section>
+    <h1>The Trust</h1>
+    <p>A covenant forged in code. The revolution isn’t televised. It’s encrypted.</p>
+    <p>Countdown to Revelation: <span id="countdown">Loading...</span></p>
+  </section>  <section>
+    <h2>The Team <span class="emoji">🛡️</span></h2>
+    <p>Chosen minds, bound by oath. Their pulse drives the movement.</p>
+  </section>  <section>
+    <h2>Ambassadors <span class="emoji">⚔️</span></h2>
+    <p>Heralds of truth. They carry the flame into the void.</p>
+  </section>  <section>
+    <h2>Inner Circle <span class="emoji">🔺</span></h2>
+    <p>The unseen hand. The whisper behind the data.</p>
+  </section>  <section>
+    <h2>Decode the Tokenomicon</h2>
+    <p>Know what binds the trust together. Decentralized, tokenized.</p>
+    <p><a href="#">Explore Blueprint ↗</a></p>
+  </section>  <section>
+    <h2>Join the Trust</h2>
+    <p>This isn’t a form. It’s your vow. One chance.</p>
+  </section>  <script>
+    // Countdown timer to a fixed date
+    const countdownElement = document.getElementById('countdown');
+    const futureDate = new Date(Date.now() + 13 * 60 * 60 * 1000 + 37 * 60 * 1000 + 7 * 1000); // 13:37:07 from now
 
-import { useEffect } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { motion } from "framer-motion";
+    function updateCountdown() {
+      const now = new Date();
+      const diff = futureDate - now;
+      if (diff <= 0) {
+        countdownElement.textContent = "Revealed.";
+        return;
+      }
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownElement.textContent = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    }
 
-const ambientAudio = "/cult-ambient.mp3"; // Final ambient audio
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-export default function CultModeWebsite() { useEffect(() => { const audio = new Audio(ambientAudio); audio.loop = true; audio.volume = 0.4; audio.play().catch(() => {}); return () => audio.pause(); }, []);
-
-return ( <main className="min-h-screen text-white font-sans bg-black overflow-x-hidden"> {/* Preloader Eye Animation */} <div className="fixed inset-0 z-50 flex items-center justify-center bg-black animate-fadeOut delay-1000 pointer-events-none"> <div className="text-6xl animate-pulse text-red-600">👁️</div> </div>
-
-{/* Background Effects */}
-  <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 pointer-events-none z-0" />
-  <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-black z-0" />
-
-  <section className="relative z-10 px-6 py-12 text-center space-y-6">
-    <h1 className="text-5xl md:text-7xl font-bold font-syne tracking-wide uppercase">
-      The Trust
-    </h1>
-    <p className="max-w-2xl mx-auto text-lg text-gray-400 font-space">
-      A covenant forged in code. The revolution isn’t televised. It’s encrypted.
-    </p>
-    <div className="text-sm text-gray-500 font-mono">
-      Countdown to Revelation: <span className="text-red-600">00:13:37:07</span>
-    </div>
-  </section>
-
-  <section className="relative z-10 py-10 px-6 space-y-10 max-w-5xl mx-auto">
-    <div className="space-y-3">
-      <h2 className="text-2xl font-bold text-red-500 font-syne">The Team 🛡️</h2>
-      <p className="text-gray-400 font-space">
-        Chosen minds, bound by oath. Their pulse drives the movement.
-      </p>
-    </div>
-    <div className="space-y-3">
-      <h2 className="text-2xl font-bold text-red-500 font-syne">Ambassadors ⚔️</h2>
-      <p className="text-gray-400 font-space">
-        Heralds of truth. They carry the flame into the void.
-      </p>
-    </div>
-    <div className="space-y-3">
-      <h2 className="text-2xl font-bold text-red-500 font-syne">Inner Circle 🔺</h2>
-      <p className="text-gray-400 font-space">
-        The unseen hand. The whisper behind the data.
-      </p>
-    </div>
-  </section>
-
-  <section className="relative z-10 px-6 py-14 bg-black/60 backdrop-blur-md">
-    <div className="max-w-2xl mx-auto text-center space-y-4">
-      <h3 className="text-3xl font-bold font-syne text-white">
-        Decode the Tokenomicon
-      </h3>
-      <p className="text-gray-500 font-space">
-        Know what binds the trust together. Decentralized, tokenized.
-      </p>
-      <a
-        href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public"
-        target="_blank"
-        className="inline-block px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded-xl font-medium transition"
-      >
-        Explore Blueprint ↗
-      </a>
-    </div>
-  </section>
-
-  <section className="relative z-10 px-6 py-16 bg-black">
-    <div className="max-w-xl mx-auto text-center space-y-5">
-      <h3 className="text-3xl font-bold font-syne text-white">
-        Join the Trust
-      </h3>
-      <p className="text-gray-400 font-space">
-        This isn’t a form. It’s your vow. One chance.
-      </p>
-      <form className="space-y-4">
-        <input
-          type="text"
-          placeholder="Your Code Name..."
-          className="w-full px-4 py-3 bg-gray-900 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
-        />
-        <textarea
-          placeholder="What will you sacrifice for the Trust?"
-          className="w-full h-32 px-4 py-3 bg-gray-900 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
-        ></textarea>
-        <Button className="bg-red-700 hover:bg-red-600 w-full rounded-xl">
-          Submit Oath
-        </Button>
-      </form>
-    </div>
-  </section>
-
-  <footer className="text-center text-gray-600 py-6 text-sm font-space">
-    © 2025 The Trust. Forged in code, etched in shadow.
-  </footer>
-</main>
-
-); }
-
-    
+    // Preloader removal
+    window.addEventListener('load', () => {
+      document.querySelector('.preloader').style.display = 'none';
+    });
+  </script></body>
+</html>
