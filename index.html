@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$TRUST Countdown</title>
+    <style>
+        body { text-align: center; font-family: Arial; margin-top: 50px; }
+        #countdown { font-size: 24px; color: #00f; }
+    </style>
+</head>
+<body>
+    <h2>Get Ready for $TRUST!</h2>
+    <p>Launching with @0xIntuition</p>
+    <div id="countdown"></div>
+    <p>Show your support!</p>
+    <input type="text" id="xHandle" placeholder="Enter your X handle">
+    <button onclick="pledgeSupport()">Pledge Trust</button>
+    <ul id="pledges"></ul>
+
+    <script>
+        const launchDate = new Date("July 1, 2025 00:00:00").getTime();
+        const pledges = [];
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerHTML = `${days} days left!`;
+            if (distance < 0) document.getElementById("countdown").innerHTML = "Launched!";
+        }
+
+        function pledgeSupport() {
+            const handle = document.getElementById("xHandle").value;
+            if (handle) {
+                pledges.push(handle);
+                document.getElementById("pledges").innerHTML = pledges.map(h => `<li>${h}</li>`).join('');
+                document.getElementById("xHandle").value = '';
+                alert(`Thanks, ${handle}! Your pledge is noted.`);
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
