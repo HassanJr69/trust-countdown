@@ -1,206 +1,98 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$TRUST Countdown – Powered by Intuition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #000;
-      color: #e0e0e0;
-      text-align: center;
-      padding: 2rem;
-      background-image: radial-gradient(circle at center, #0f0f0f, #000);
-    }header {
-  margin-bottom: 3rem;
-}
+// Cult-Tech Website – Ultimate Version
 
-img.logo {
-  width: 120px;
-  margin-bottom: 1rem;
-}
+import { useEffect } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { motion } from "framer-motion";
 
-h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  color: #f0f;
-  text-shadow: 0 0 15px #f0f;
-  letter-spacing: 1.5px;
-}
+const ambientAudio = "/cult-ambient.mp3"; // Final ambient audio
 
-.countdown {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-top: 1rem;
-  color: #0ff;
-  text-shadow: 0 0 8px #0ff;
-}
+export default function CultModeWebsite() { useEffect(() => { const audio = new Audio(ambientAudio); audio.loop = true; audio.volume = 0.4; audio.play().catch(() => {}); return () => audio.pause(); }, []);
 
-section {
-  margin: 3rem 0;
-  padding: 1rem;
-  background: rgba(10, 10, 10, 0.7);
-  border: 1px solid #333;
-  border-radius: 10px;
-  backdrop-filter: blur(3px);
-}
+return ( <main className="min-h-screen text-white font-sans bg-black overflow-x-hidden"> {/* Preloader Eye Animation */} <div className="fixed inset-0 z-50 flex items-center justify-center bg-black animate-fadeOut delay-1000 pointer-events-none"> <div className="text-6xl animate-pulse text-red-600">👁️</div> </div>
 
-.section-title {
-  font-family: 'Orbitron', sans-serif;
-  color: #fff;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
-.section-title::before {
-  content: "✱";
-  color: #f0f;
-  margin-right: 0.5rem;
-}
+{/* Background Effects */}
+  <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 pointer-events-none z-0" />
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-black z-0" />
 
-ul {
-  list-style-type: none;
-  margin-top: 1rem;
-}
-ul li a {
-  color: #0ff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-ul li a:hover {
-  color: #f0f;
-  text-shadow: 0 0 5px #f0f;
-}
+  <section className="relative z-10 px-6 py-12 text-center space-y-6">
+    <h1 className="text-5xl md:text-7xl font-bold font-syne tracking-wide uppercase">
+      The Trust
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg text-gray-400 font-space">
+      A covenant forged in code. The revolution isn’t televised. It’s encrypted.
+    </p>
+    <div className="text-sm text-gray-500 font-mono">
+      Countdown to Revelation: <span className="text-red-600">00:13:37:07</span>
+    </div>
+  </section>
 
-footer {
-  margin-top: 4rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-footer a {
-  color: #f0f;
-}
+  <section className="relative z-10 py-10 px-6 space-y-10 max-w-5xl mx-auto">
+    <div className="space-y-3">
+      <h2 className="text-2xl font-bold text-red-500 font-syne">The Team 🛡️</h2>
+      <p className="text-gray-400 font-space">
+        Chosen minds, bound by oath. Their pulse drives the movement.
+      </p>
+    </div>
+    <div className="space-y-3">
+      <h2 className="text-2xl font-bold text-red-500 font-syne">Ambassadors ⚔️</h2>
+      <p className="text-gray-400 font-space">
+        Heralds of truth. They carry the flame into the void.
+      </p>
+    </div>
+    <div className="space-y-3">
+      <h2 className="text-2xl font-bold text-red-500 font-syne">Inner Circle 🔺</h2>
+      <p className="text-gray-400 font-space">
+        The unseen hand. The whisper behind the data.
+      </p>
+    </div>
+  </section>
 
-.tokenomics-link {
-  display: block;
-  margin-top: 2rem;
-  color: #aaa;
-  font-style: italic;
-}
+  <section className="relative z-10 px-6 py-14 bg-black/60 backdrop-blur-md">
+    <div className="max-w-2xl mx-auto text-center space-y-4">
+      <h3 className="text-3xl font-bold font-syne text-white">
+        Decode the Tokenomicon
+      </h3>
+      <p className="text-gray-500 font-space">
+        Know what binds the trust together. Decentralized, tokenized.
+      </p>
+      <a
+        href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public"
+        target="_blank"
+        className="inline-block px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded-xl font-medium transition"
+      >
+        Explore Blueprint ↗
+      </a>
+    </div>
+  </section>
 
-.pledge-section {
-  margin-top: 4rem;
-}
-input[type="text"] {
-  padding: 0.8rem;
-  font-size: 1rem;
-  width: 80%;
-  max-width: 400px;
-  border: 2px solid #f0f;
-  background: #111;
-  color: #fff;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-}
+  <section className="relative z-10 px-6 py-16 bg-black">
+    <div className="max-w-xl mx-auto text-center space-y-5">
+      <h3 className="text-3xl font-bold font-syne text-white">
+        Join the Trust
+      </h3>
+      <p className="text-gray-400 font-space">
+        This isn’t a form. It’s your vow. One chance.
+      </p>
+      <form className="space-y-4">
+        <input
+          type="text"
+          placeholder="Your Code Name..."
+          className="w-full px-4 py-3 bg-gray-900 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
+        />
+        <textarea
+          placeholder="What will you sacrifice for the Trust?"
+          className="w-full h-32 px-4 py-3 bg-gray-900 text-white rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
+        ></textarea>
+        <Button className="bg-red-700 hover:bg-red-600 w-full rounded-xl">
+          Submit Oath
+        </Button>
+      </form>
+    </div>
+  </section>
 
-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #f0f;
-  border: none;
-  color: #000;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border-radius: 5px;
-}
+  <footer className="text-center text-gray-600 py-6 text-sm font-space">
+    © 2025 The Trust. Forged in code, etched in shadow.
+  </footer>
+</main>
 
-button:hover {
-  background-color: #b300b3;
-  transform: scale(1.05);
-}
+); }
 
-  </style>
-</head>
-<body>
-  <header>
-    <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">
-    <h1>$TRUST IS COMING</h1>
-    <div class="countdown" id="countdown"></div>
-    <p>Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for exclusive insights and updates.</p>
-  </header>  <section>
-    <h2 class="section-title">Official Team</h2>
-    <ul>
-      <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>
-      <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>
-      <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>
-    </ul>
-  </section>  <section>
-    <h2 class="section-title">Ambassadors</h2>
-    <ul>
-      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
-      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
-      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
-      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
-    </ul>
-  </section>  <section>
-    <h2 class="section-title">Inner Circle</h2>
-    <ul>
-      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
-      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
-      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
-      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
-      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
-    </ul>
-  </section>  <a class="tokenomics-link" href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" target="_blank">
-    For more arcane insights into the token's inner structure, explore the tokenomics here →
-  </a>  <footer>
-    <p>Crafted with vision by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
-  </footer>  <section class="pledge-section">
-    <h2 class="section-title">Priority Pledge</h2>
-    <p>Signal your allegiance. Join the $TRUST priority waitlist and step into the vault.</p>
-    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
-    <br />
-    <button onclick="pledgeSupport()">Pledge My Trust</button>
-    <ul id="pledges"></ul>
-  </section>  <script>
-    const launchDate = new Date("August 15, 2025 00:00:00").getTime();
-    const pledges = [];
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "🚀 $TRUST Has Launched!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    function pledgeSupport() {
-      const handle = document.getElementById("xHandle").value.trim();
-      if (handle && !pledges.includes(handle)) {
-        pledges.push(handle);
-        document.getElementById("pledges").innerHTML = pledges.map(h => `<li>@${h}</li>`).join('');
-        alert(`Thanks, @${handle}! You're now on the $TRUST priority waitlist.`);
-        document.getElementById("xHandle").value = '';
-      }
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script></body>
-</html>
+    
