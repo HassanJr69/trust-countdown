@@ -1,277 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$TRUST 🔥</title>
-  
-  <!-- Cult Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
+  <title>TRUST 🔥</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background: #000;
-      color: #c00;
-      font-family: 'UnifrakturCook', serif;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Animated Noise Background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-      opacity: 0.03;
-      z-index: 1;
-      pointer-events: none;
-      animation: flicker 1s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 0.03; }
-      50% { opacity: 0.07; }
-    }
-
-    /* Preloader */
-    #preloader {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
       background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
+      color: #eee;
+      font-family: 'UnifrakturCook', cursive;
+      overflow-x: hidden;
+      background-image: radial-gradient(circle, #111 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: bgMove 60s linear infinite;
+    }@keyframes bgMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
 
-    .eye {
-      width: 80px;
-      height: 80px;
-      border: 3px solid crimson;
-      border-radius: 50%;
-      position: relative;
-      animation: blink 2s ease forwards;
-      box-shadow: 0 0 20px crimson;
-    }
+#preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.eye {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  animation: blink 2s ease forwards;
+}
+.eye::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+@keyframes blink {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+  100% { transform: scaleY(1); opacity: 0; visibility: hidden; }
+}
 
-    .eye::before {
-      content: '';
-      width: 20px;
-      height: 20px;
-      background: crimson;
-      border-radius: 50%;
-      position: absolute;
-      top: 30px;
-      left: 30px;
-    }
+h1, h2, h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px 0;
+  font-family: 'UnifrakturCook', cursive;
+}
 
-    @keyframes blink {
-      0% { transform: scaleY(1); }
-      50% { transform: scaleY(0.1); }
-      100% { transform: scaleY(1); opacity: 0; visibility: hidden; }
-    }
+.glitch {
+  position: relative;
+  color: #fff;
+  font-size: 2.5rem;
+  animation: glitch 1s infinite;
+}
+@keyframes glitch {
+  0% { text-shadow: 2px 2px red; }
+  25% { text-shadow: -2px -2px cyan; }
+  50% { text-shadow: 2px -2px lime; }
+  75% { text-shadow: -2px 2px magenta; }
+  100% { text-shadow: 2px 2px red; }
+}
 
-    h1, h2, h3 {
-      text-align: center;
-      text-transform: uppercase;
-      margin: 20px 0;
-      font-family: 'Creepster', cursive;
-      color: crimson;
-      text-shadow: 0 0 10px red, 0 0 20px darkred;
-    }
+.countdown {
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'Share Tech Mono', monospace;
+}
 
-    .glitch {
-      position: relative;
-      font-size: 2.5rem;
-      animation: glitch 1s infinite;
-    }
+.logo {
+  display: block;
+  margin: 30px auto 20px;
+  max-width: 150px;
+  filter: grayscale(1) brightness(1.2);
+}
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px red; }
-      25% { text-shadow: -2px -2px lime; }
-      50% { text-shadow: 2px -2px magenta; }
-      75% { text-shadow: -2px 2px cyan; }
-      100% { text-shadow: 2px 2px red; }
-    }
+section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+}
 
-    .countdown {
-      font-size: 2rem;
-      text-align: center;
-      margin: 20px 0;
-      font-family: 'UnifrakturCook', serif;
-    }
+input, button {
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
 
-    .logo {
-      display: block;
-      margin: 30px auto 20px;
-      max-width: 150px;
-      filter: grayscale(100%) brightness(1.5);
-    }
+button:hover {
+  background: #0f0;
+  color: black;
+  cursor: pointer;
+}
 
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
+.username-list,
+ul#pledges,
+section ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
 
-    input, button {
-      background: #111;
-      color: #0f0;
-      border: 1px solid #0f0;
-      padding: 10px;
-      margin-top: 10px;
-      font-family: 'UnifrakturCook', serif;
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      box-shadow: 0 0 8px #0f0;
-    }
+ul li {
+  margin: 5px 0;
+}
 
-    button:hover {
-      background: #0f0;
-      color: black;
-      cursor: pointer;
-      box-shadow: 0 0 12px #0f0;
-    }
+a {
+  color: #0ff;
+  text-decoration: none;
+}
 
-    .username-list,
-    ul#pledges,
-    section ul {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    ul li {
-      margin: 5px 0;
-      color: #faa;
-    }
+.footer {
+  margin: 80px 0 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
 
-    a {
-      color: #f00;
-      text-decoration: none;
-      text-shadow: 0 0 5px crimson;
-    }
+audio {
+  display: none;
+}
 
-    a:hover {
-      text-decoration: underline;
-      color: #fff;
-      text-shadow: 0 0 10px red;
-    }
+.candle {
+  width: 20px;
+  height: 60px;
+  background: #222;
+  margin: 40px auto;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  animation: flicker 2s infinite ease-in-out;
+}
+.flame {
+  width: 10px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  box-shadow: 0 0 20px red;
+  animation: flicker 0.15s infinite alternate;
+}
+@keyframes flicker {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+}
 
-    .footer {
-      margin: 80px 0 30px;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.5;
-    }
-
-    audio {
-      display: none;
-    }
   </style>
 </head>
 <body>
-
-  <!-- Preloader -->
   <div id="preloader">
     <div class="eye"></div>
-  </div>
-
-  <!-- Cult Audio -->
-  <audio id="cultAudio" autoplay loop>
+  </div>  <audio id="cultAudio" autoplay loop>
     <source src="cult-ambient.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio>
-
-  <header>
+  </audio>  <header>
     <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">
-    <h1 class="glitch">👁️ $TRUST IS COMING</h1>
+    <h1 class="glitch">\ud83d\udc41\ufe0f $TRUST IS COMING</h1>
     <div class="countdown" id="countdown"></div>
     <p style="text-align: center;">
       Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for cryptic transmissions and hidden signals.
     </p>
-  </header>
-
-  <section>
-    <h2>👁️ Exclusive Waitlist Access</h2>
+  </header>  <div class="candle"><div class="flame"></div></div>  <section>
+    <h2 class="section-title">👁️ Exclusive Waitlist Access</h2>
     <p style="text-align: center;">Signal your allegiance early. Enter the veil. Pledge your Trust.</p>
     <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
     <button onclick="pledgeSupport()">Pledge My Trust</button>
     <ul id="pledges"></ul>
-  </section>
-
-  <section>
-    <h2>🗓️ Official Launch Date</h2>
+  </section>  <section>
+    <h2 class="section-title">🗓️ Official Launch Date</h2>
     <p style="text-align: center;">$TRUST enters the realm on <strong>August 15, 2025</strong>.</p>
-  </section>
-
-  <section>
-    <h2>📜 Tokenomics Scroll</h2>
+  </section>  <section>
+    <h2 class="section-title">📜 Tokenomics Scroll</h2>
     <p style="text-align: center;">Unravel the sacred structure that governs $TRUST. View the full token distribution, rules of allocation, and cryptic economics.</p>
     <p style="text-align: center;">
       <a href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" target="_blank">Enter the Tokenomics Scroll</a>
     </p>
-  </section>
-
-  <section>
-    <h2>👤 Official Team</h2>
+  </section>  <section>
+    <h2 class="section-title">👤 Official Team</h2>
     <ul>
       <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>
       <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>
       <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>
-    </ul>
+    </ul><h2 class="section-title">🧱 Ambassadors</h2>
+<ul>
+  <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
+  <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
+  <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
+  <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
+</ul>
 
-    <h2>🧭 Ambassadors</h2>
-    <ul>
-      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
-      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
-      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
-      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
-    </ul>
+<h2 class="section-title">👁️ Inner Circle</h2>
+<ul>
+  <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
+  <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
+  <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
+  <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
+  <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
+</ul>
 
-    <h2>👁️ Inner Circle</h2>
-    <ul>
-      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
-      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
-      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
-      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
-      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
-    </ul>
-  </section>
-
-  <footer class="footer">
+  </section>  <footer class="footer">
     <p>Manifested in code by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
-  </footer>
-
-  <script>
+  </footer>  <script>
     const launchDate = new Date("August 15, 2025 00:00:00").getTime();
     const pledges = [];
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = launchDate - now;
-
       if (distance < 0) {
         document.getElementById("countdown").innerHTML = "🚀 $TRUST Has Ascended.";
         return;
       }
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
       document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
@@ -292,6 +264,5 @@
       const preloader = document.getElementById("preloader");
       if (preloader) preloader.style.display = "none";
     }, 2200);
-  </script>
-</body>
+  </script></body>
 </html>
