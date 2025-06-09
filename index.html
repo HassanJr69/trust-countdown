@@ -1,48 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>👁️ $TRUST — The Countdown Begins</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRUST 🔥</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .eye {
+      width: 80px;
+      height: 80px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      position: relative;
+      animation: blink 2s ease forwards;
+    }
+    .eye::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
+    @keyframes blink {
+      0% { transform: scaleY(1); }
+      50% { transform: scaleY(0.1); }
+      100% { transform: scaleY(1); opacity: 0; visibility: hidden; }
+    }
+
+    .container {
+      padding: 60px 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .glitch {
+      position: relative;
+      color: #fff;
+      font-size: 2.5rem;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      25% { text-shadow: -2px -2px cyan; }
+      50% { text-shadow: 2px -2px lime; }
+      75% { text-shadow: -2px 2px magenta; }
+      100% { text-shadow: 2px 2px red; }
+    }
+
+    .symbol {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .username-list {
+      margin-top: 40px;
+      padding-left: 20px;
+    }
+
+    .username-list li {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Preloader 👁️ -->
+  <!-- Preloader -->
   <div id="preloader">
-    <div class="eye">
-      <div class="lid top"></div>
-      <div class="pupil"></div>
-      <div class="lid bottom"></div>
-    </div>
+    <div class="eye"></div>
   </div>
 
-  <!-- Audio for ambient cult vibe -->
+  <!-- Cult Audio -->
   <audio id="cultAudio" autoplay loop>
-    <source src="ambient.mp3" type="audio/mp3" />
+    <source src="cult-ambient.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
-  <!-- Main container -->
-  <div id="page" class="hidden">
-    <header>
-      <img src="intuition-logo.png" alt="Intuition Logo" class="logo"/>
-      <h1 class="glitch-title">$TRUST IS COMING</h1>
-      <div id="countdown" class="countdown"></div>
-      <p class="follow-text">Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for inner knowledge.</p>
-    </header>
+  <div class="container">
+    <h1 class="glitch">THE TRUST ✸</h1>
 
-    <!-- More sections coming below -->
-    <main>
-      <!-- We will add team, pledging, inner circle, and footer in the next steps -->
-    </main>
+    <div class="symbol">
+      &#9763; &#9765; &#9762; &#9904; &#9760;
+    </div>
 
-    <footer>
-      <p>👁️ Crafted with intention by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
-    </footer>
+    <h2 class="glitch">The Circle</h2>
+    <ul class="username-list">
+      <li>@TheChosenOne</li>
+      <li>@InitiateZero</li>
+      <li>@DarkNode</li>
+      <li>@Web3Wolf</li>
+      <li>@MaskOfCode</li>
+    </ul>
+
+    <h2 class="glitch">Founder</h2>
+    <p style="text-align: center; font-size: 1.2rem;">@Web3Officer 👁️</p>
+
+    <div class="symbol">
+      &#9889; &#9763; &#9904; &#9760;
+    </div>
+
+    <h3 class="glitch">Pledge Coming Soon</h3>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // Preloader remove
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      preloader.style.transition = "opacity 1s ease";
+      preloader.style.opacity = 0;
+      setTimeout(() => preloader.remove(), 1000);
+    });
+
+    // Audio volume set
+    document.getElementById("cultAudio").volume = 0.3;
+  </script>
 </body>
 </html>
