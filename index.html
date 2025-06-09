@@ -116,44 +116,99 @@
     <source src="cult-ambient.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">
+    <h1>👁️ $TRUST IS COMING</h1>
+    <div class="countdown" id="countdown"></div>
+    <p>Follow <a href="https://x.com/0xIntuition" target="_blank" class="dark-link">@0xIntuition</a> for cryptic transmissions and hidden signals.</p>
+  </header>
 
-  <div class="container">
-    <h1 class="glitch">THE TRUST ✸</h1>
+  <section>
+    <h2 class="section-title">👁️ Exclusive Waitlist Access</h2>
+    <p>Signal your allegiance early. Enter the veil. Pledge your Trust.</p>
+    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
+    <br />
+    <button onclick="pledgeSupport()">Pledge My Trust</button>
+    <ul id="pledges"></ul>
+  </section>
 
-    <div class="symbol">
-      &#9763; &#9765; &#9762; &#9904; &#9760;
-    </div>
+  <section>
+    <h2 class="section-title">🗓️ Official Launch Date</h2>
+    <p>$TRUST enters the realm on <strong>August 15, 2025</strong>.</p>
+  </section>
 
-    <h2 class="glitch">The Circle</h2>
-    <ul class="username-list">
-      <li>@TheChosenOne</li>
-      <li>@InitiateZero</li>
-      <li>@DarkNode</li>
-      <li>@Web3Wolf</li>
-      <li>@MaskOfCode</li>
+  <section>
+    <h2 class="section-title">📜 Tokenomics Scroll</h2>
+    <p>Unravel the sacred structure that governs $TRUST. View the full token distribution, rules of allocation, and cryptic economics.</p>
+    <p><a href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" target="_blank" class="dark-link">Enter the Tokenomics Scroll</a></p>
+  </section>
+
+  <section>
+    <h2 class="section-title">👤 Official Team</h2>
+    <ul>
+      <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>
+      <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>
+      <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>
     </ul>
 
-    <h2 class="glitch">Founder</h2>
-    <p style="text-align: center; font-size: 1.2rem;">@Web3Officer 👁️</p>
+    <h2 class="section-title">🧭 Ambassadors</h2>
+    <ul>
+      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
+      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
+      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
+      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
+    </ul>
 
-    <div class="symbol">
-      &#9889; &#9763; &#9904; &#9760;
-    </div>
+    <h2 class="section-title">👁️ Inner Circle</h2>
+    <ul>
+      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
+      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
+      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
+      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
+      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
+    </ul>
+  </section>
 
-    <h3 class="glitch">Pledge Coming Soon</h3>
-  </div>
+  <footer>
+    <p>Manifested in code by <a href="https://x.com/0xMarshallo" target="_blank" class="dark-link">@0xMarshallo</a></p>
+  </footer>
 
   <script>
-    // Preloader remove
-    window.addEventListener("load", () => {
-      const preloader = document.getElementById("preloader");
-      preloader.style.transition = "opacity 1s ease";
-      preloader.style.opacity = 0;
-      setTimeout(() => preloader.remove(), 1000);
-    });
+    const launchDate = new Date("August 15, 2025 00:00:00").getTime();
+    const pledges = [];
 
-    // Audio volume set
-    document.getElementById("cultAudio").volume = 0.3;
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "🚀 $TRUST Has Ascended.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    function pledgeSupport() {
+      const handle = document.getElementById("xHandle").value.trim();
+      if (handle && !pledges.includes(handle)) {
+        pledges.push(handle);
+        document.getElementById("pledges").innerHTML = pledges.map(h => `<li>@${h}</li>`).join('');
+        alert(`Thanks, @${handle}. Your Trust has been sealed.`);
+        document.getElementById("xHandle").value = '';
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
