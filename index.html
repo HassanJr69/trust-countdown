@@ -1,337 +1,318 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TRUST 🔥</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #e6e1dc;
-      font-family: 'Share Tech Mono', monospace;
-      overflow-x: hidden;
-      box-sizing: border-box;
-      position: relative;
-      height: 100vh;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      background-image: url('https://i.imgur.com/R9O0gDR.png');
-      background-size: 40px;
-      opacity: 0.1;
-      z-index: 0;
-    }
-
-    #preloader {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .eye {
-      width: 80px;
-      height: 80px;
-      border: 2px solid white;
-      border-radius: 50%;
-      position: relative;
-      animation: blink 2s ease forwards;
-    }
-
-    .eye::before {
-      content: '';
-      width: 20px;
-      height: 20px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 30px;
-      left: 30px;
-    }
-
-    @keyframes blink {
-      0% { transform: scaleY(1); }
-      50% { transform: scaleY(0.1); }
-      100% { transform: scaleY(1); opacity: 0; visibility: hidden; }
-    }
-
-    h1, h2, h3 {
-      text-align: center;
-      text-transform: uppercase;
-      font-family: 'UnifrakturCook', cursive;
-      letter-spacing: 2px;
-      margin: 20px 0;
-      color: #ff4444;
-      animation: glitchAnim 1.5s infinite, glowPulse 2s infinite alternate;
-    }
-
-    .glitch {
-      position: relative;
-      font-size: 3rem;
-      animation: glitchAnim 1.5s infinite, glowPulse 2s infinite alternate;
-      color: #ff4444;
-    }
-
-    @keyframes glitchAnim {
-      0% { text-shadow: 2px 2px red; }
-      20% { text-shadow: -2px 0 white; }
-      40% { text-shadow: 2px -2px red; }
-      60% { text-shadow: -2px 2px white; }
-      80% { text-shadow: 2px 2px red; }
-      100% { text-shadow: 0 0 white; }
-    }
-
-    @keyframes glowPulse {
-      from { text-shadow: 0 0 5px #b13f3f; }
-      to { text-shadow: 0 0 15px #e84a4a; }
-    }
-
-    .countdown, section p, ul li, a {
-      animation: subtleGlow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes subtleGlow {
-      from { text-shadow: 0 0 3px #322; }
-      to { text-shadow: 0 0 8px #633; }
-    }
-
-    .countdown {
-      font-size: 2rem;
-      text-align: center;
-      margin: 20px 0;
-      font-family: 'Share Tech Mono', monospace;
-    }
-
-    .logo {
-      display: block;
-      margin: 30px auto 20px;
-      max-width: 150px;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      background: rgba(30, 20, 20, 0.1);
-      border-radius: 12px;
-      border: 2px solid #aa4444;
-    }
-
-    input, button {
-      background: #1a1a1a;
-      color: #f2f2f2;
-      border: 1px solid #aa4444;
-      padding: 10px;
-      font-family: 'Share Tech Mono', monospace;
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin: 10px auto;
-      border-radius: 8px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    button:hover {
-      background: #aa4444;
-      color: black;
-      cursor: pointer;
-    }
-
-    a {
-      color: #e6e1dc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .footer {
-      margin: 80px 0 30px;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-
-    .candle {
-      width: 20px;
-      height: 60px;
-      background: #222;
-      margin: 20px auto;
-      position: relative;
-    }
-
-    .candle::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 20px;
-      background: red;
-      border-radius: 50% 50% 0 0;
-      animation: flameFlicker 1s infinite;
-    }
-
-    @keyframes flameFlicker {
-      0%, 100% { transform: translateX(-50%) scaleY(1); }
-      50% { transform: translateX(-50%) scaleY(1.3); }
-    }
-
-    audio {
-      display: none;
-    }
-
-    .tokenomics-button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 10px auto;
-      border: 2px solid #aa4444;
-      background: #1a1a1a;
-      color: #f2f2f2;
-      border-radius: 8px;
-      text-align: center;
-      text-transform: uppercase;
-      text-shadow: 0 0 5px #411;
-      box-shadow: 0 0 12px #210707;
-      font-weight: bold;
-    }
-
-    .tokenomics-button:hover {
-      background: #aa4444;
-      color: black;
-    }
-
-    /* Added this for preloader */
-    @media (max-width: 768px) {
-      .eye {
-        width: 60px;
-        height: 60px;
-      }
-    }
-
-  </style>
-</head>
-<body>
-  <div id="preloader">
-    <div class="eye"></div>
-  </div>
-
-  <audio id="cultAudio" loop>
-    <source src="cult-ambient.mp3" type="audio/mpeg">
-  </audio>
-
-  <header>
-    <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">
-    <h1 class="glitch">$TRUST IS COMING</h1>
-    <div class="countdown" id="countdown"></div>
-    <div class="candle"></div>
-    <p style="text-align: center;">
-      Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for cryptic transmissions and hidden signals.
-    </p>
-  </header>
-
-  <section>
-    <h2>Exclusive Waitlist Access</h2>
-    <p style="text-align: center;">Signal your allegiance early. Enter the veil. Pledge your Trust.</p>
-    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">
-    <button onclick="pledgeSupport()">Pledge My Trust</button>
-    <ul id="pledges"></ul>
-  </section>
-
-  <section>
-    <h2>Official Launch Date</h2>
-    <p style="text-align: center;">$TRUST enters the realm on <strong>August 15, 2025</strong>.</p>
-  </section>
-
-  <section>
-    <h2>Tokenomics Scroll</h2>
-    <p style="text-align: center;">Unravel the sacred structure that governs $TRUST. View the full token distribution, rules of allocation, and cryptic economics.</p>
-    <p style="text-align: center;">
-      <a href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" class="tokenomics-button" target="_blank">Enter the Tokenomics Scroll</a>
-    </p>
-  </section>
-
-  <section>
-    <h2>Official Team</h2>
-    <ul>
-      <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>
-      <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>
-      <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>
-    </ul>
-    <h2>Ambassadors</h2>
-    <ul>
-      <li><a href="https://x.com/@olivierjeremie" target="_blank">@olivierjeremie</a></li>
-      <li><a href="https://x.com/ThibaultLENORM2" target="_blank">@ThibaultLENORM2</a></li>
-      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>
-      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>
-      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>
-      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
-      <li><a href="https://x.com/RealJolad" target="_blank">@RealJolad</a></li>
-    </ul>
-    <h2>Inner 👁️ Circle</h2>
-    <ul>
-      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
-      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
-      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>
-      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
-      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
-    </ul>
-  </section>
-
-  <footer class="footer">
-    <p>Manifested in code by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
-  </footer>
-
-  <script>
-    const launchDate = new Date("August 15, 2025 00:00:00").getTime();
-    const pledges = [];
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "🚀 $TRUST Has Ascended.";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-
-    function pledgeSupport() {
-      const handle = document.getElementById("xHandle").value;
-      if (handle) {
-        pledges.push(handle);
-        document.getElementById("pledges").innerHTML = pledges.map(pledge => `<li>${pledge}</li>`).join('');
-      }
-    }
-
-    window.onload = () => {
-      document.getElementById("preloader").style.display = 'none';  // Hide preloader
-      document.getElementById("cultAudio").play();  // Play ambient audio
-    };
-  </script>
-</body>
-</html>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>TRUST 🔥</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">  
+  <style>  
+    body {  
+      margin: 0;  
+      background: #0b0b0b;  
+      color: #e6e1dc;  
+      font-family: 'Share Tech Mono', monospace;  
+      overflow-x: hidden;  
+      box-sizing: border-box;  
+      position: relative;  
+      height: 100vh;  
+    }  
+  
+    body::before {  
+      content: "";  
+      position: fixed;  
+      top: 0; left: 0;  
+      width: 100vw;  
+      height: 100vh;  
+      pointer-events: none;  
+      background-image: url('https://i.imgur.com/R9O0gDR.png');  
+      background-size: 40px;  
+      opacity: 0.1;  
+      z-index: 0;  
+    }  
+  
+    #preloader {  
+      position: fixed;  
+      width: 100vw;  
+      height: 100vh;  
+      background: black;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      z-index: 9999;  
+    }  
+  
+    .eye {  
+      width: 80px;  
+      height: 80px;  
+      border: 2px solid white;  
+      border-radius: 50%;  
+      position: relative;  
+      animation: blink 2s ease forwards;  
+    }  
+  
+    .eye::before {  
+      content: '';  
+      width: 20px;  
+      height: 20px;  
+      background: white;  
+      border-radius: 50%;  
+      position: absolute;  
+      top: 30px;  
+      left: 30px;  
+    }  
+  
+    @keyframes blink {  
+      0% { transform: scaleY(1); }  
+      50% { transform: scaleY(0.1); }  
+      100% { transform: scaleY(1); opacity: 0; visibility: hidden; }  
+    }  
+  
+    h1, h2, h3 {  
+      text-align: center;  
+      text-transform: uppercase;  
+      font-family: 'UnifrakturCook', cursive;  
+      letter-spacing: 2px;  
+      margin: 20px 0;  
+      color: #707070;  
+      animation: glitchAnim 1.5s infinite, glowPulse 2s infinite alternate;  
+    }  
+  
+    .glitch {  
+      position: relative;  
+      font-size: 3rem;  
+      animation: glitchAnim 1.5s infinite, glowPulse 2s infinite alternate;  
+      color: #707070;  
+    }  
+  
+    @keyframes glitchAnim {  
+      0% { text-shadow: 2px 2px #707070; }  
+      20% { text-shadow: -2px 0 white; }  
+      40% { text-shadow: 2px -2px #707070; }  
+      60% { text-shadow: -2px 2px white; }  
+      80% { text-shadow: 2px 2px #707070; }  
+      100% { text-shadow: 0 0 white; }  
+    }  
+  
+    @keyframes glowPulse {  
+      from { text-shadow: 0 0 5px #707070; }  
+      to { text-shadow: 0 0 15px #707070; }  
+    }  
+  
+    .countdown, section p, ul li, a {  
+      animation: subtleGlow 3s ease-in-out infinite alternate;  
+    }  
+  
+    @keyframes subtleGlow {  
+      from { text-shadow: 0 0 3px #322; }  
+      to { text-shadow: 0 0 8px #633; }  
+    }  
+  
+    .countdown {  
+      font-size: 2rem;  
+      text-align: center;  
+      margin: 20px 0;  
+      font-family: 'Share Tech Mono', monospace;  
+    }  
+  
+    .logo {  
+      display: block;  
+      margin: 30px auto 20px;  
+      max-width: 150px;  
+    }  
+  
+    section {  
+      padding: 40px 20px;  
+      max-width: 800px;  
+      margin: auto;  
+      background: rgba(30, 20, 20, 0.1);  
+      border-radius: 12px;  
+      border: 2px solid #707070;  
+    }  
+  
+    input, button {  
+      background: #1a1a1a;  
+      color: #f2f2f2;  
+      border: 1px solid #707070;  
+      padding: 10px;  
+      font-family: 'Share Tech Mono', monospace;  
+      width: 100%;  
+      max-width: 400px;  
+      display: block;  
+      margin: 10px auto;  
+      border-radius: 8px;  
+      text-transform: uppercase;  
+      letter-spacing: 2px;  
+    }  
+  
+    button:hover {  
+      background: #707070;  
+      color: black;  
+      cursor: pointer;  
+    }  
+  
+    a {  
+      color: #e6e1dc;  
+      text-decoration: none;  
+    }  
+  
+    a:hover {  
+      text-decoration: underline;  
+    }  
+  
+    .footer {  
+      margin: 80px 0 30px;  
+      text-align: center;  
+      font-size: 0.9rem;  
+      opacity: 0.6;  
+    }  
+  
+    .candle {  
+      width: 20px;  
+      height: 60px;  
+      background: #222;  
+      margin: 20px auto;  
+      position: relative;  
+    }  
+  
+    .candle::before {  
+      content: '';  
+      position: absolute;  
+      top: -20px;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      width: 10px;  
+      height: 20px;  
+      background: red; /* Keeping the candle fire red as requested */
+      border-radius: 50% 50% 0 0;  
+      animation: flameFlicker 1s infinite;  
+    }  
+  
+    @keyframes flameFlicker {  
+      0%, 100% { transform: translateX(-50%) scaleY(1); }  
+      50% { transform: translateX(-50%) scaleY(1.3); }  
+    }  
+  
+    audio {  
+      display: none;  
+    }  
+  
+    .tokenomics-button {  
+      display: inline-block;  
+      padding: 10px 20px;  
+      margin: 10px auto;  
+      border: 2px solid #707070;  
+      background: #1a1a1a;  
+      color: #f2f2f2;  
+      border-radius: 8px;  
+      text-align: center;  
+      text-transform: uppercase;  
+      text-shadow: 0 0 5px #411;  
+      box-shadow: 0 0 12px #210707;  
+      font-weight: bold;  
+    }  
+  
+    .tokenomics-button:hover {  
+      background: #707070;  
+      color: black;  
+    }  
+  
+    /* Added this for preloader */  
+    @media (max-width: 768px) {  
+      .eye {  
+        width: 60px;  
+        height: 60px;  
+      }  
+    }  
+  
+  </style>  
+</head>  
+<body>  
+  <div id="preloader">  
+    <div class="eye"></div>  
+  </div>  
+  
+  <audio id="cultAudio" loop>  
+    <source src="cult-ambient.mp3" type="audio/mpeg">  
+  </audio>  
+  
+  <header>  
+    <img class="logo" src="1000244598-removebg-preview.png" alt="$TRUST Logo">  
+    <h1 class="glitch">$TRUST IS COMING</h1>  
+    <div class="countdown" id="countdown"></div>  
+    <div class="candle"></div>  
+    <p style="text-align: center;">  
+      Follow <a href="https://x.com/0xIntuition" target="_blank">@0xIntuition</a> for cryptic transmissions and hidden signals.  
+    </p>  
+  </header>  
+  
+  <section>  
+    <h2>Exclusive Waitlist Access</h2>  
+    <p style="text-align: center;">Signal your allegiance early. Enter the veil. Pledge your Trust.</p>  
+    <input type="text" id="xHandle" placeholder="Enter your X (Twitter) handle">  
+    <button onclick="pledgeSupport()">Pledge My Trust</button>  
+    <ul id="pledges"></ul>  
+  </section>  
+  
+  <section>  
+    <h2>Official Launch Date</h2>  
+    <p style="text-align: center;">$TRUST enters the realm on <strong>August 15, 2025</strong>.</p>  
+  </section>  
+  
+  <section>  
+    <h2>Tokenomics Scroll</h2>  
+    <p style="text-align: center;">Unravel the sacred structure that governs $TRUST. View the full token distribution, rules of allocation, and cryptic economics.</p>  
+    <p style="text-align: center;">  
+      <a href="https://app.forgd.com/share/trust/9837b0d0-e11f-410f-80e6-62a0b6fe13ff/public" class="tokenomics-button" target="_blank">Enter the Tokenomics Scroll</a>  
+    </p>  
+  </section>  
+  
+  <section>  
+    <h2>Official Team</h2>  
+    <ul>  
+      <li><a href="https://x.com/0xbilly" target="_blank">@0xbilly</a></li>  
+      <li><a href="https://x.com/h0xrus" target="_blank">@h0xrus</a></li>  
+      <li><a href="https://x.com/fvngbill" target="_blank">@fvngbill</a></li>  
+    </ul>  
+    <h2>Ambassadors</h2>  
+    <ul>  
+      <li><a href="https://x.com/@olivierjeremie" target="_blank">@olivierjeremie</a></li>  
+      <li><a href="https://x.com/ThibaultLENORM2" target="_blank">@ThibaultLENORM2</a></li>  
+      <li><a href="https://x.com/acdupes" target="_blank">@acdupes</a></li>  
+      <li><a href="https://x.com/W00DS_eth" target="_blank">@W00DS_eth</a></li>  
+      <li><a href="https://x.com/CalebNFTGod" target="_blank">@CalebNFTGod</a></li>  
+      <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>  
+      <li><a href="https://x.com/RealJolad" target="_blank">@RealJolad</a></li>  
+    </ul>  
+    <h2>Inner 👁️ Circle</h2>  
+    <ul>  
+      <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>  
+      <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>  
+      <li><a href="https://x.com/0xxnuel" target="_blank">@0xxnuel</a></li>  
+      <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>  
+      <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>  
+    </ul>  
+  </section>  
+  
+  <footer class="footer">  
+    <p>Manifested in code by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>  
+  </footer>  
+  
+  <script>  
+    const launchDate = new Date("August 15, 2025 00:00:00").getTime();  
+    const pledges = [];  
+  
+    function updateCountdown() {  
+      const now = new Date().getTime();  
+      const distance = launchDate - now;  
+      if (distance < 0) {  
+        document.getElementById("countdown").innerHTML = "🚀 $TRUST Has Ascended.";  
+        return;  
+      }  
+  
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));  
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);  
+  
+      document.getElementById("countdown").innerHTML =  
+        `${days}d ${hours
