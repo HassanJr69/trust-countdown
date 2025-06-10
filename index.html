@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,9 +12,9 @@
       color: #e6e1dc;
       font-family: 'Share Tech Mono', monospace;
       overflow-x: hidden;
-      border: 10px solid transparent;
       box-sizing: border-box;
       position: relative;
+      height: 100vh;
     }
 
     body::before {
@@ -23,7 +24,7 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      background-image: url('https://i.imgur.com/R9O0gDR.png'); /* cult-like floral border pattern */
+      background-image: url('https://i.imgur.com/R9O0gDR.png');
       background-size: 40px;
       opacity: 0.1;
       z-index: 0;
@@ -214,6 +215,15 @@
       background: #aa4444;
       color: black;
     }
+
+    /* Added this for preloader */
+    @media (max-width: 768px) {
+      .eye {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -273,7 +283,7 @@
       <li><a href="https://x.com/00adewale" target="_blank">@00adewale</a></li>
       <li><a href="https://x.com/RealJolad" target="_blank">@RealJolad</a></li>
     </ul>
-  <h2>Inner 👁️ Circle</h2>
+    <h2>Inner 👁️ Circle</h2>
     <ul>
       <li><a href="https://x.com/RChrisre" target="_blank">@RChrisre</a></li>
       <li><a href="https://x.com/CrownA18" target="_blank">@CrownA18</a></li>
@@ -281,8 +291,7 @@
       <li><a href="https://x.com/d_web3doc" target="_blank">@d_web3doc</a></li>
       <li><a href="https://x.com/AdeyemiOladip14" target="_blank">@AdeyemiOladip14</a></li>
     </ul>
-</section>
-  
+  </section>
 
   <footer class="footer">
     <p>Manifested in code by <a href="https://x.com/0xMarshallo" target="_blank">@0xMarshallo</a></p>
@@ -302,4 +311,27 @@
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    function pledgeSupport() {
+      const handle = document.getElementById("xHandle").value;
+      if (handle) {
+        pledges.push(handle);
+        document.getElementById("pledges").innerHTML = pledges.map(pledge => `<li>${pledge}</li>`).join('');
+      }
+    }
+
+    window.onload = () => {
+      document.getElementById("preloader").style.display = 'none';  // Hide preloader
+      document.getElementById("cultAudio").play();  // Play ambient audio
+    };
+  </script>
+</body>
+</html>
